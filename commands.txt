@@ -1,0 +1,24 @@
+dbshell							- Open new Terminal window
+diffsettings				- No input, output in HTML
+dumpdata						- Options: JSON v YAML; All Models v Current Models
+flush								- No options. Output is Tooltip (--noinput)
+inspectdb						- Needs filename, creates new document
+loaddata						- Current File.  Tooltip.
+makemessages				- Project. Creates new document
+reset								- No input. Tooltip (--noinput)
+runfcgi							-
+[DONE]	runserver						- No input. HTML Output
+shell								- Open new Terminal window
+sql									- New Document. Uses appname of current file, or global
+sqlall							- As above
+sqlclear						- As above
+sqlcustom						- As above
+sqlflush						- As above
+sqlindexes					- As above
+sqlreset						- As above
+sqlsequencereset		- As above
+startapp						- Takes user input. Output is Tooltip
+syncdb							- No input, Tooltip output
+[DONE]	test								- HTML Output
+testserver					- Uses selected files to create fixtures, HTML output
+[DONE]	validate						- Tooltip Output

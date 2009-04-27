@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#! /usr/bin/env ruby
+
+command = [ENV["TM_PYTHON"] || "python", "-u", "#{ENV['TM_PROJECT_DIRECTORY']}/manage.py", "test", "--noinput"]
+
+File.open(ENV['TM_FILEPATH']) do |f|
+  f.readlines.each do |line|
+    if line =~ /class (.*)\(.*TestCase\):/
+      test_case = $1
+      app_name = ENV['TM_FILEPATH'].split(ENV['TM_PROJECT_DIRECTORY'])[1].split('/')[1]
+      test_name = "#{app_name}.#{test_case}"
+      command &lt;&lt; test_name
+    end
+  end
+end
+
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+
+ENV["PYTHONPATH"] = ENV["TM_BUNDLE_SUPPORT"] + (ENV.has_key?("PYTHONPATH") ? ":" + ENV["PYTHONPATH"] : "")
+
+TextMate::Executor.run(command) do |str, type|
+  if type == :err
+    if str =~ /\A[\.EF]*\Z/
+      str.gsub!(/(\.)/, "&lt;span class=\"test ok\"&gt;\\1&lt;/span&gt;")
+      str.gsub!(/(E|F)/, "&lt;span class=\"test fail\"&gt;\\1&lt;/span&gt;")
+      str + "&lt;br/&gt;\n"
+    elsif str =~ /\A(FAILED.*)\Z/
+      "&lt;div class=\"test fail\"&gt;#{htmlize $1}&lt;/div&gt;\n"
+    elsif str =~ /\A(OK.*)\Z/
+      "&lt;div class=\"test ok\"&gt;#{htmlize $1}&lt;/div&gt;\n"
+    elsif str =~ /^(\s+)File "(.+)", line (\d+), in (.*)/
+      indent = $1
+      file   = $2
+      line   = $3
+      method = $4
+      indent += " " if file.sub!(/^\"(.*)\"/,"\1")
+      url = "&amp;url=file://" + e_url(file)
+      display_name = file.split('/').last 
+      "#{htmlize(indent)}&lt;a class=\"near\" href=\"txmt://open?line=#{line + url}\"&gt;" +
+        (method ? "method #{method}" : "&lt;em&gt;at top level&lt;/em&gt;") +
+        "&lt;/a&gt; in &lt;strong&gt;#{display_name}&lt;/strong&gt; at line #{line}&lt;br/&gt;\n"
+    end
+  end
+end</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@d</string>
+	<key>name</key>
+	<string>Run Tests</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.python.django</string>
+	<key>uuid</key>
+	<string>A0A254BA-B206-4634-AE0C-B583F53229E1</string>
+</dict>
+</plist>
