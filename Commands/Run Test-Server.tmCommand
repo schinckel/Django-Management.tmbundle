@@ -7,21 +7,23 @@
 	<key>command</key>
 	<string>#!/bin/sh
 
+# This one does not work yet...
+
 export TM_RUBY=$(type -p "${TM_RUBY:-ruby}")
 
-"${TM_RUBY}" -KU -- "$TM_BUNDLE_SUPPORT/run_server.rb" runserver
+"${TM_RUBY}" -KU -- "$TM_BUNDLE_SUPPORT/run_server.rb" testserver "$TM_SELECTED_FILES"
 </string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
 	<string>@d</string>
 	<key>name</key>
-	<string>Run Server</string>
+	<string>Run Test-Server</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>source.python.django</string>
+	<string>source.json</string>
 	<key>uuid</key>
-	<string>9391A5C1-B1CF-4A56-AC63-CDBB1DB8F55B</string>
+	<string>C8B16906-5A97-4AAA-9AAF-ED1DE479198A</string>
 </dict>
 </plist>

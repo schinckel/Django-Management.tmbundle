@@ -2,17 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>contactEmail</key>
-  <string>matt@schinckel.net</string>
-  <key>contactName</key>
-  <string>Matthew Schinckel</string>
 	<key>name</key>
-	<string>Django-Management</string>
+	<string>Django Management</string>
 	<key>ordering</key>
 	<array>
 		<string>9391A5C1-B1CF-4A56-AC63-CDBB1DB8F55B</string>
-		<string>E65D7908-312A-40DC-ABC0-C26D79E88FAF</string>
+		<string>C8B16906-5A97-4AAA-9AAF-ED1DE479198A</string>
 		<string>A0A254BA-B206-4634-AE0C-B583F53229E1</string>
+		<string>E65D7908-312A-40DC-ABC0-C26D79E88FAF</string>
 	</array>
 	<key>uuid</key>
 	<string>9EC3BA18-A3D0-400C-B804-B172A5327F06</string>

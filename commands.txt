@@ -1,14 +1,14 @@
-dbshell							- Open new Terminal window
-diffsettings				- No input, output in HTML
-dumpdata						- Options: JSON v YAML; All Models v Current Models
+[DONE]	dbshell							- Open new Terminal window
+[DONE]	diffsettings				- No input, output in HTML
+dumpdata						- Options: JSON v YAML; All Models v Current Models: New File.
 flush								- No options. Output is Tooltip (--noinput)
 inspectdb						- Needs filename, creates new document
-loaddata						- Current File.  Tooltip.
+[DONE]	loaddata						- Current File.  Tooltip.
 makemessages				- Project. Creates new document
 reset								- No input. Tooltip (--noinput)
 runfcgi							-
 [DONE]	runserver						- No input. HTML Output
-shell								- Open new Terminal window
+[DONE]	shell								- Open new Terminal window
 sql									- New Document. Uses appname of current file, or global
 sqlall							- As above
 sqlclear						- As above
