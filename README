@@ -1,2 +1,10 @@
-This is a TextMate bundle that can be used to run the commands for managing
-django in the current project.
+This is a TextMate bundle that can be used to run the commands for managing django in the current project.
+
+This bundle assumes that the root of the Textmate project is the same as the root of the django project.
+
+You can use Cmd-D to run the commands.
+
+Commands:
+
+test - if a file is selected, look for Tests within that file, and run those.  Otherwise, run all tests for the project.
+
