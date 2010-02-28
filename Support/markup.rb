@@ -18,13 +18,18 @@ class DjangoParser
       # Run Server - interpret HTTP Result Code
       code = $1
       type = (code.to_i >= 400 ? "err" : "ok")
-    when /Installing (.*) fixture \'(.*)\' from \'(.*)\'\./
+    when /^Installing (.*) fixture \'(.*)\' from \'(.*)\'\./
       method, path = $1, $2
       path = "#{path}.#{method}"
       filename = path.split('/')[-1]
       file_url = "txmt://open?line=0&url=file://#{path}"
       file_link = "<a class=\"near\" href=\"#{file_url}\">#{filename}</a>"
       str = "Installing #{method} fixtures from #{file_link}."
+      return ""
+    when /^Installing index for (.+)\.(.+) model/
+      return ""
+    when /^Creating table (.+)$/
+      return ""
     when /\A[\.EF]*\Z/
       str.gsub!(/(\.)/, "<span class=\"test ok\">\\1</span>")
       str.gsub!(/(E|F)/, "<span class=\"test fail\">\\1</span>")
@@ -42,7 +47,12 @@ class DjangoParser
       display_name = file.split('/').last 
       str = "#{htmlize(indent)}<a class=\"near\" href=\"txmt://open?line=#{line + url}\">" +
         (method ? "method #{method}" : "<em>at top level</em>") +
-        "</a> in <strong>#{display_name}</strong> at line #{line}<br/>\n"  
+        "</a> in <strong>#{display_name}</strong> at line #{line}<br/>\n"
+    when /^Ran (\d+) tests in (\d+\.\d+)s$/
+      type = ""
+    else
+      type = ""
+      str = htmlize str
     end
     "<div class=\"#{type}\">#{str}</div>"
   end

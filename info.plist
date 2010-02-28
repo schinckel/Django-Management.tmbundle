@@ -2,14 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>A0A254BA-B206-4634-AE0C-B583F53229E1</string>
+			<string>9391A5C1-B1CF-4A56-AC63-CDBB1DB8F55B</string>
+			<string>C8B16906-5A97-4AAA-9AAF-ED1DE479198A</string>
+			<string>3C8BDFD3-F37F-41B8-93BA-07A7560C0F34</string>
+			<string>99D4014F-88DB-473A-9274-7F4A26BB1723</string>
+			<string>E65D7908-312A-40DC-ABC0-C26D79E88FAF</string>
+			<string>4B3FDF3E-9EAF-4DB9-8BFA-1ED3C3B94453</string>
+			<string>2B582C60-CADF-4183-AD1E-7EE345D6EA4B</string>
+			<string>4EABADD3-9D3B-439F-95F2-CFABCD7A3E43</string>
+			<string>DBF28DAA-17B1-4C92-82EE-5F31133E280E</string>
+		</array>
+		<key>submenus</key>
+		<dict/>
+	</dict>
 	<key>name</key>
 	<string>Django Management</string>
 	<key>ordering</key>
 	<array>
 		<string>9391A5C1-B1CF-4A56-AC63-CDBB1DB8F55B</string>
 		<string>C8B16906-5A97-4AAA-9AAF-ED1DE479198A</string>
+		<string>3C8BDFD3-F37F-41B8-93BA-07A7560C0F34</string>
 		<string>A0A254BA-B206-4634-AE0C-B583F53229E1</string>
+		<string>99D4014F-88DB-473A-9274-7F4A26BB1723</string>
 		<string>E65D7908-312A-40DC-ABC0-C26D79E88FAF</string>
+		<string>4B3FDF3E-9EAF-4DB9-8BFA-1ED3C3B94453</string>
+		<string>2B582C60-CADF-4183-AD1E-7EE345D6EA4B</string>
+		<string>4EABADD3-9D3B-439F-95F2-CFABCD7A3E43</string>
 	</array>
 	<key>uuid</key>
 	<string>9EC3BA18-A3D0-400C-B804-B172A5327F06</string>
